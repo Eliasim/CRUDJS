@@ -1,0 +1,32 @@
+.Cabeza{
+    text-align: center;
+    background-color: aqua;
+    padding: 30px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 50px;
+    border: 10px solid blue;
+}
+
+.Titulos{
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.Div{
+    display: flex;
+    width: 100%;
+    float: left;
+    height: auto;
+    text-align: center;
+    justify-content: center;
+    margin-top: 5px;
+    padding: 0px;
+}
+
+.Margen{
+    margin: 20px;
+}
+
+#btnGuardar{
+    margin-top: 20px;
+}
