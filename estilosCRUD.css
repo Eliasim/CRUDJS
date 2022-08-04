@@ -1,15 +1,19 @@
 .Cabeza{
     text-align: center;
-    background-color: rgb(255, 179, 202);
+    background-color: rgb(255, 146, 95);
     padding: 30px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 50px;
-    border: 10px solid rgb(123, 252, 252);
+    border: 10px solid rgb(123, 194, 252);
 }
 
 .Titulos{
     font-size: 30px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.Body{
+    background-color: rgba(63, 67, 71, 0.384);
 }
 
 .Div{

@@ -7,46 +7,63 @@
     <title>CRUD</title>
     <link rel="stylesheet" href="C:\Users\ESTACION X\Desktop\EliasimCRUD\estilosCRUD.css">
 </head>
-<body>
+<body class="Body">
     
     <header>
         <h1 class="Cabeza">CRUD</h1>
     </header>
 
-    <form action="">
-        <section class="Div">
+    <form>
+        <section id="Formulario" class="Div">
             <div class="Margen">
                 <label class="Titulos" for="Nombre" id="Nombre">Nombre</label><br>
-                <input type="text" id="inNombre" placeholder="Nombre" required>
+                <input type="text" id="inNombre" placeholder="Nombre">
             </div>
     
             <div class="Margen">
-                <label class="Titulos" for="Nacimiento" id="Nacimiento">Fecha de nacimiento</label><br>
-                <input type="date" id="inNacimiento" required>
+                <label class="Titulos" for="Fecha" id="Fecha">Fecha de Nacimiento</label><br>
+                <input type="date" id="inFecha">
             </div>
     
             <div class="Margen">
                 <label class="Titulos" for="Telefono" id="Telefono">Telefono</label><br>
-                <input type="number" id="inTelefono" placeholder="Telefono" required>
+                <input type="number" id="inTelefono" placeholder="Telefono">
             </div>
     
             <div class="Margen">
                 <label class="Titulos" for="Edad" id="Edad">Edad</label><br>
-                <input type="number" id="inEdad" placeholder="Edad" required>
+                <input type="number" id="inEdad" placeholder="Edad">
             </div>
     
             <div class="Margen">
                 <label class="Titulos" for="Trabajo" id="Trabajo">Trabajo</label><br>
-                <input type="text" id="inTrabajo" placeholder="Trabajo" required>
+                <input type="text" id="inTrabajo" placeholder="Trabajo">
             </div>            
         </section>
 
-        <section>
+        <section id="Boton">
             <div class="Div">
-                <button type="submit" id="btnGuardar">Guardar</button>
+                <button type="button" onclick="guardar()">Guardar</button>
             </div>
         </section>
     </form>
-    
+
+        <section id="Lista">
+            <div>
+                <table id="Tabla" class="Div" >
+                    <tr>
+                        <th><h3>Nombre</h3></th>
+                        <th><h3>Fecha de Nacimiento</h3></th>
+                        <th><h3>Telefono</h3></th>
+                        <th><h3>Edad</h3></th>
+                        <th><h3>Trabajo</h3></th>
+                    </tr>
+                    <tr>
+
+                    </tr>
+                </table>
+            </div>
+        </section>
+    <script src="javaCRUD.js"></script>    
 </body>
 </html>
