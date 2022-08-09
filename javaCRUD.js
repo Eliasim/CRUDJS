@@ -22,14 +22,19 @@ function mostrar(){
 
     listaPersonas.forEach(element => {
         node.appendChild(document.createTextNode(element.gNombre + " / " + element.gFecha+ " / " + element.gTelefono+ " / " + element.gEdad+ " / " + element.gTrabajo));
+        node.setAttribute("id", "p0")
+        btnEditar.setAttribute("id", "bi0")
+        btnEliminar.setAttribute("id", "bii0")
+        btnEliminar.setAttribute("onclick", "eliminar()")
         document.querySelector("ul").appendChild(node);
         document.querySelector("ul").appendChild(btnEditar);
-        btnEditar.addEventListener('click',function eliminar(){
-            //listaPersonas.splice(element,1);
-            console.log(element);
-        });
         document.querySelector("ul").appendChild(btnEliminar);
         listaPersonas = [];
     });
 }
 
+function eliminar(){
+    document.getElementById("p0").remove();
+    document.getElementById("bi0").remove();
+    document.getElementById("bii0").remove();
+}
