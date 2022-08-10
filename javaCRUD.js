@@ -1,4 +1,13 @@
 var listaPersonas = [];
+var node, el
+
+function limpiar(){
+    document.getElementById("inNombre").value = ""
+    document.getElementById("inFecha").value = ""
+    document.getElementById("inTelefono").value = ""
+    document.getElementById("inEdad").value =""
+    document.getElementById("inTrabajo").value =""
+}
 
 function guardar(){
     var gNombre = document.getElementById("inNombre").value;
@@ -8,33 +17,39 @@ function guardar(){
     var gTrabajo = document.getElementById("inTrabajo").value;
     
     
-    listaPersonas = [...listaPersonas,{gNombre, gFecha, gTelefono, gEdad, gTrabajo}];    
-    mostrar();    
+    limpiar();
+    let objeto = {gNombre, gFecha, gTelefono, gEdad, gTrabajo}
+    listaPersonas.push(objeto);
+    mostrar();
+    objeto = {}
 }
 
 function mostrar(){
     var node = document.createElement("li");
     var btnEditar = document.createElement("button");
     var btnEliminar = document.createElement("button");
-    
+    let lastItem = listaPersonas.length-1;
+
     btnEditar.textContent = "Editar";
     btnEliminar.textContent = "Eliminar";
 
-    listaPersonas.forEach(element => {
-        node.appendChild(document.createTextNode(element.gNombre + " / " + element.gFecha+ " / " + element.gTelefono+ " / " + element.gEdad+ " / " + element.gTrabajo));
-        node.setAttribute("id", "p0")
-        btnEditar.setAttribute("id", "bi0")
-        btnEliminar.setAttribute("id", "bii0")
-        btnEliminar.setAttribute("onclick", "eliminar()")
-        document.querySelector("ul").appendChild(node);
-        document.querySelector("ul").appendChild(btnEditar);
-        document.querySelector("ul").appendChild(btnEliminar);
-        listaPersonas = [];
-    });
+    node.appendChild(document.createTextNode(listaPersonas[lastItem].gNombre + " / " + listaPersonas[lastItem].gFecha+ " / " + listaPersonas[lastItem].gTelefono+ " / " + listaPersonas[lastItem].gEdad+ " / " + listaPersonas[lastItem].gTrabajo));
+    el = node.setAttribute("id", lastItem)
+    el = btnEditar.setAttribute("id", lastItem)
+    el = btnEliminar.setAttribute("id", lastItem)
+    btnEliminar.setAttribute("onclick", "eliminar('"+lastItem+"')")
+    btnEditar.setAttribute("onclick", "editar()")
+    document.querySelector("ul").appendChild(node);
+    document.querySelector("ul").appendChild(btnEditar);
+    document.querySelector("ul").appendChild(btnEliminar);
 }
 
-function eliminar(){
-    document.getElementById("p0").remove();
-    document.getElementById("bi0").remove();
-    document.getElementById("bii0").remove();
+function eliminar(id){
+    listaPersonas.splice(id,1)
+}
+
+
+function editar(){
+    eliminar()
+    guardar()
 }
