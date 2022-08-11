@@ -1,4 +1,4 @@
-//alert('Si quieres editar un usuario, primero ingresa nuevamente TODOS los datos en el formulario y posteriormente presiona el boton "Editar" en el usuario que desee')
+alert('Si quieres editar un usuario, primero ingresa nuevamente TODOS los datos en el formulario y posteriormente presiona el boton "Editar" en el usuario que desee')
 
 var listaPersonas = [];
 var node, el
