@@ -1,4 +1,4 @@
-alert('Si quieres editar un usuario, primero ingresa nuevamente TODOS los datos en el formulario y posteriormente presiona el boton "Editar" en el usuario que desee')
+//alert('Si quieres editar un usuario, primero ingresa nuevamente TODOS los datos en el formulario y posteriormente presiona el boton "Editar" en el usuario que desee')
 
 var listaPersonas = [];
 var node, el
@@ -17,10 +17,9 @@ function guardar(){
     var gTelefono = document.getElementById("inTelefono").value;
     var gEdad = document.getElementById("inEdad").value;
     var gTrabajo = document.getElementById("inTrabajo").value;
-    
+    let objeto = {gNombre, gFecha, gTelefono, gEdad, gTrabajo}
     
     limpiar();
-    let objeto = {gNombre, gFecha, gTelefono, gEdad, gTrabajo}
     listaPersonas.push(objeto);
     mostrar();
     objeto = {}
