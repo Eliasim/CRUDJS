@@ -21,11 +21,11 @@ function guardar(){
     let objeto = {gNombre, gFecha, gTelefono, gEdad, gTrabajo}
     
     
-    
     limpiar();
     listaPersonas.push(objeto);
     mostrar();
     objeto = {}
+    console.log(listaPersonas);
 }
 
 function mostrar(){
@@ -37,7 +37,15 @@ function mostrar(){
     btnEditar.textContent = "Editar";
     btnEliminar.textContent = "Eliminar";
 
-    node.appendChild(document.createTextNode(listaPersonas[lastItem].gNombre + " / " + listaPersonas[lastItem].gFecha+ " / " + listaPersonas[lastItem].gTelefono+ " / " + listaPersonas[lastItem].gEdad+ " / " + listaPersonas[lastItem].gTrabajo));
+    node.appendChild(document.createTextNode("Nombre: " + listaPersonas[lastItem].gNombre));
+    node.appendChild(document.createElement("br"))
+    node.appendChild(document.createTextNode("Fecha de Nacimiento " + listaPersonas[lastItem].gFecha));
+    node.appendChild(document.createElement("br"))
+    node.appendChild(document.createTextNode("Telefono: " + listaPersonas[lastItem].gTelefono));
+    node.appendChild(document.createElement("br"))
+    node.appendChild(document.createTextNode("Edad: " + listaPersonas[lastItem].gEdad));
+    node.appendChild(document.createElement("br"))
+    node.appendChild(document.createTextNode("Trabajo: " + listaPersonas[lastItem].gTrabajo));
     el = node.setAttribute("id", lastItem)
     el = btnEditar.setAttribute("id", lastItem)
     el = btnEliminar.setAttribute("id", lastItem)
