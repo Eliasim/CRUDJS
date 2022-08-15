@@ -17,7 +17,7 @@
         <section id="Formulario" class="Div">
             <div class="Margen">
                 <label class="Titulos" for="Nombre" id="Nombre">Nombre</label><br>
-                <input type="text" id="inNombre" placeholder="Nombre">
+                <input type="text" id="inNombre" placeholder="Nombre" onkeypress="return event.charCode != 32">
             </div>
     
             <div class="Margen">
@@ -27,17 +27,21 @@
     
             <div class="Margen">
                 <label class="Titulos" for="Telefono" id="Telefono">Telefono</label><br>
-                <input type="number" id="inTelefono" placeholder="Telefono">
+                <input type="text" maxlength="10" id="inTelefono" placeholder="Telefono" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" >
             </div>
     
             <div class="Margen">
                 <label class="Titulos" for="Edad" id="Edad">Edad</label><br>
-                <input type="number" id="inEdad" placeholder="Edad">
+                <input type="text" maxlength="2" id="inEdad" placeholder="Edad" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">
             </div>
     
             <div class="Margen">
                 <label class="Titulos" for="Trabajo" id="Trabajo">Trabajo</label><br>
-                <input type="text" id="inTrabajo" placeholder="Trabajo">
+                <!---<input type="text" id="inTrabajo" placeholder="Trabajo">--->
+                <select name="inTrabajo" id="inTrabajo">
+                    <option value="value1">Front</option>
+                    <option value="value2">Back</option>
+                </select>
             </div>            
         </section>
 
