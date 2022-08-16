@@ -1,5 +1,3 @@
-//alert('Si quieres editar un usuario, primero ingresa nuevamente TODOS los datos en el formulario y posteriormente presiona el boton "Editar" en el usuario que desee')
-
 var listaPersonas = [];
 var node, el
 inFecha.max = new Date().toISOString().split("T")[0]
@@ -23,41 +21,82 @@ function guardar(){
     
     limpiar();
     listaPersonas.push(objeto);
-    mostrar();
+    mostrarNombre();
+    mostrarFecha();
+    mostrarTelefono();
+    mostrarEdad();
+    mostrarTrabajo();
+    mostrarBotones();
     objeto = {}
     console.log(listaPersonas);
 }
 
-function mostrar(){
-    var node = document.createElement("li");
-    var btnEditar = document.createElement("button");
-    var btnEliminar = document.createElement("button");
+function mostrarNombre(){
+    var node = document.createElement("tr");
     let lastItem = listaPersonas.length-1;
 
+    node.appendChild(document.createTextNode(listaPersonas[lastItem].gNombre));
+    node.setAttribute("id", lastItem)
+    document.getElementById("listNombre").appendChild(node);  
+}
+
+function mostrarFecha(){
+    var node = document.createElement("tr");
+    let lastItem = listaPersonas.length-1;
+    node.appendChild(document.createTextNode(listaPersonas[lastItem].gFecha));
+    node.setAttribute("id", lastItem)
+    document.getElementById("listFecha").appendChild(node); 
+}
+
+function mostrarTelefono(){
+    var node = document.createElement("tr");
+    let lastItem = listaPersonas.length-1;
+    node.appendChild(document.createTextNode(listaPersonas[lastItem].gTelefono));
+    node.setAttribute("id", lastItem)
+    document.getElementById("listTelefono").appendChild(node); 
+}
+
+function mostrarEdad(){
+    var node = document.createElement("tr");
+    let lastItem = listaPersonas.length-1;
+    node.appendChild(document.createTextNode(listaPersonas[lastItem].gEdad));
+    node.setAttribute("id", lastItem)
+    document.getElementById("listEdad").appendChild(node); 
+}
+
+function mostrarTrabajo(){
+    var node = document.createElement("tr");
+    let lastItem = listaPersonas.length-1;
+    node.appendChild(document.createTextNode(listaPersonas[lastItem].gTrabajo));
+    node.setAttribute("id", lastItem)
+    document.getElementById("listTrabajo").appendChild(node); 
+}
+
+function mostrarBotones(){
+    var node = document.createElement("tr");
+    let lastItem = listaPersonas.length-1;
+    var btnEditar = document.createElement("button");
+    var btnEliminar = document.createElement("button");
     btnEditar.textContent = "Editar";
     btnEliminar.textContent = "Eliminar";
-
-    node.appendChild(document.createTextNode("Nombre: " + listaPersonas[lastItem].gNombre));
-    node.appendChild(document.createElement("br"))
-    node.appendChild(document.createTextNode("Fecha de Nacimiento " + listaPersonas[lastItem].gFecha));
-    node.appendChild(document.createElement("br"))
-    node.appendChild(document.createTextNode("Telefono: " + listaPersonas[lastItem].gTelefono));
-    node.appendChild(document.createElement("br"))
-    node.appendChild(document.createTextNode("Edad: " + listaPersonas[lastItem].gEdad));
-    node.appendChild(document.createElement("br"))
-    node.appendChild(document.createTextNode("Trabajo: " + listaPersonas[lastItem].gTrabajo));
-    el = node.setAttribute("id", lastItem)
-    el = btnEditar.setAttribute("id", lastItem)
-    el = btnEliminar.setAttribute("id", lastItem)
+    
+    btnEditar.setAttribute("id", lastItem)
+    btnEliminar.setAttribute("id", lastItem)
+    btnEditar.setAttribute("class", "rounded-md bg-gray-300")
+    btnEliminar.setAttribute("class", "rounded-md bg-gray-300")
     btnEliminar.setAttribute("onclick", "eliminar('"+lastItem+"')")
     btnEditar.setAttribute("onclick", "editar('"+lastItem+"')")
-    document.querySelector("ul").appendChild(node);
-    document.querySelector("ul").appendChild(btnEditar);
-    document.querySelector("ul").appendChild(btnEliminar);
+    document.getElementById("listAcciones").appendChild(node);
+    document.getElementById("listAcciones").appendChild(btnEditar);
+    document.getElementById("listAcciones").appendChild(btnEliminar);  
 }
 
 function eliminar(id){
     listaPersonas.splice(id,1)
+    document.getElementById(id).remove()
+    document.getElementById(id).remove()
+    document.getElementById(id).remove()
+    document.getElementById(id).remove()
     document.getElementById(id).remove()
     document.getElementById(id).remove()
     document.getElementById(id).remove()
@@ -72,7 +111,7 @@ function editar(id){
     var gTrabajo = document.getElementById("inTrabajo").value;
     var objeto = {gNombre, gFecha, gTelefono, gEdad, gTrabajo}
 
-    document.getElementById(id).innerHTML = gNombre + " / " + gFecha + " / " + gTelefono + " / " + gEdad + " / " + gTrabajo + " / " 
+    document.getElementById(id).innerHTML = gNombre + " / " + gFecha + " / " + gTelefono + " / " + gEdad + " / " + gTrabajo
 
     edit = listaPersonas[id]
     listaPersonas.splice(id,1,objeto)

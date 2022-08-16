@@ -6,14 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD</title>
     <link rel="stylesheet" href="C:\Users\ESTACION X\Desktop\EliasimCRUD\estilosCRUD.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="Body">
+<body class="bg-gray-100">
     
     <header>
-        <h1 class="Cabeza">CRUD</h1>
+        <img src="C:\Users\ESTACION X\Desktop\EliasimCRUD\logoProsis.png" id="logo">
     </header>
 
     <form>
+        <section>
+            <h1 class="Cabeza bg-gray-500">CRUD</h1>
+        </section>
+        
         <section id="Formulario" class="Div">
             <div class="Margen">
                 <label class="Titulos" for="Nombre" id="Nombre">Nombre</label><br>
@@ -49,46 +54,35 @@
             </div>            
         </section>
 
-        <section id="Boton">
-            <div class="Div">
-                <button type="button" onclick="guardar()">Guardar</button>
+        <section id="Boton" >
+            <div class="Div" class="mb-10">
+                <button type="button" onclick="guardar()" class="rounded-md bg-gray-300 mb-10" >Guardar</button>
             </div>
         </section>
     </form>
-
-        <section id="Resultado">
-            <div id="resultados">
-                <ul id="Lista">
-                    
-                </ul>
-            </div>
-        </section>    
     
-        <section id="Formulario" class="Div">
-            <div class="Margen">
-                <label class="Titulos" for="Nombre" id="listNombre">Nombre</label><br>
-            </div>
-    
-            <div class="Margen">
-                <label class="Titulos" for="Fecha" id="listFecha">Fecha de Nacimiento</label><br>
-            </div>
-    
-            <div class="Margen">
-                <label class="Titulos" for="Telefono" id="listTelefono">Telefono</label><br>
-            </div>
-    
-            <div class="Margen">
-                <label class="Titulos" for="Edad" id="listEdad">Edad</label><br>
-            </div>
-    
-            <div class="Margen">
-                <label class="Titulos" for="Trabajo" id="listTrabajo">Trabajo</label><br>
-            </div>     
-            
-            <div class="Margen">
-                <label class="Titulos" for="Trabajo" id="listAcciones">Acciones</label><br>
-            </div>    
-    </section>
+        <table id="Listado" class="table-auto Tabla ">
+            <thead class="Margen">
+                <tr>
+                    <th class="subTitulos Margen" for="Nombre">Nombre</th>   
+                    <th class="subTitulos Margen" for="Fecha">Fecha de Nacimiento</th>  
+                    <th class="subTitulos Margen" for="Telefono">Telefono</th>    
+                    <th class="subTitulos Margen" for="Edad">Edad</th>    
+                    <th class="subTitulos Margen" for="Trabajo">Trabajo</th>            
+                    <th class="subTitulos Margen" for="Acciones">Acciones</th>
+                </tr>
+            </thead>    
+            <tbody>
+                <tr class="border border-gray-200 mb-4">
+                <td id="listNombre" ></td>
+                <td id="listFecha"></td>
+                <td id="listTelefono"></td>
+                <td id="listEdad"></td>
+                <td id="listTrabajo"></td>
+                <td id="listAcciones"></td>
+                </tr>
+            </tbody>
+        </table>
 
     <script src="javaCRUD.js"></script>  
 </body>

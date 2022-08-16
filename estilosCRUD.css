@@ -4,7 +4,7 @@
     padding: 30px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 50px;
-    border: 10px solid rgb(123, 194, 252);
+    color: white;
 }
 
 .Titulos{
@@ -12,8 +12,9 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.Body{
-    background-color: rgba(63, 67, 71, 0.384);
+.subTitulos{
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .Div{
@@ -40,4 +41,20 @@
 
 #btnGuardar{
     margin-top: 20px;
+}
+
+.Botones{
+    background-color: aqua;
+}
+
+#logo{
+    width: 500;
+    height: 500;
+    margin: auto;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+#Listado{
+    margin: 0 auto;
 }
