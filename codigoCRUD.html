@@ -11,38 +11,38 @@
 <body class="bg-gray-100">
     
     <header>
-        <img src="C:\Users\ESTACION X\Desktop\EliasimCRUD\logoProsis.png" id="logo">
+        <img src="C:\Users\ESTACION X\Desktop\EliasimCRUD\logoProsis.png" id="logo" class="w-15 m-10">
     </header>
 
-    <form>
-        <section>
-            <h1 class="Cabeza bg-gray-500">CRUD</h1>
+    <form id="form" name="form">
+        <section class="px-10">
+            <h1 class="text-center text-white font-mono text-7xl p-4 bg-gray-500 rounded-md">CRUD</h1>
         </section>
         
-        <section id="Formulario" class="Div">
-            <div class="Margen">
-                <label class="Titulos" for="Nombre" id="Nombre">Nombre</label><br>
-                <input type="text" id="inNombre" placeholder="Nombre" onkeypress="return event.charCode != 32">
+        <section id="Formulario" class="flex justify-center text-center pt-5">
+            <div class="bg-gray-400 m-10 p-3 rounded-md">
+                <label class="text-4xl font-mono text-white" for="Nombre" id="Nombre">Nombre</label><br><br>
+                <input class="bg-gray-100" type="text" id="inNombre" name="inNombre" onkeypress="return event.charCode != 32">
             </div>
     
-            <div class="Margen">
-                <label class="Titulos" for="Fecha" id="Fecha">Fecha de Nacimiento</label><br>
-                <input type="date" id="inFecha">
+            <div class="bg-gray-400 m-10 p-3 rounded-md">
+                <label class="text-4xl font-mono text-white" for="Fecha" id="Fecha">Fecha de Nacimiento</label><br><br>
+                <input class="bg-gray-100" type="date" id="inFecha" name="inFecha">
             </div>
     
-            <div class="Margen">
-                <label class="Titulos" for="Telefono" id="Telefono">Telefono</label><br>
-                <input type="text" maxlength="10" id="inTelefono" placeholder="Telefono" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" >
+            <div class="bg-gray-400 m-10 p-3 rounded-md">
+                <label class="text-4xl font-mono text-white" for="Telefono" id="Telefono">Telefono</label><br><br>
+                <input class="bg-gray-100" type="text" maxlength="10" id="inTelefono" name="inTelefono" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" >
             </div>
     
-            <div class="Margen">
-                <label class="Titulos" for="Edad" id="Edad">Edad</label><br>
-                <input type="text" maxlength="2" id="inEdad" placeholder="Edad" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">
+            <div class="bg-gray-400 m-10 p-3 rounded-md">
+                <label class="text-4xl font-mono text-white" for="Edad" id="Edad">Edad</label><br><br>
+                <input class="bg-gray-100" type="text" maxlength="2" id="inEdad" name="inEdad" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">
             </div>
     
-            <div class="Margen">
-                <label class="Titulos" for="Trabajo" id="Trabajo">Trabajo</label><br>
-                <select name="inTrabajo" id="inTrabajo">
+            <div class="bg-gray-400 m-10 p-3 rounded-md">
+                <label class="text-4xl font-mono text-white" for="Trabajo" id="Trabajo">Trabajo</label><br><br>
+                <select class="bg-gray-100" name="inTrabajo" id="inTrabajo" name="inTrabajo">
                     <option value="Front-end">Front-end</option>
                     <option value="Back-end">Back-end</option>
                     <option value="Full Stack">Full Stack</option>
@@ -55,26 +55,27 @@
         </section>
 
         <section id="Boton" >
-            <div class="Div" class="mb-10">
-                <button type="button" onclick="guardar()" class="rounded-md bg-gray-300 mb-10" >Guardar</button>
+            <div class="flex justify-center pt-4" id="botones">
+                <button type="button" onclick="guardar()" class="font-mono rounded-md bg-gray-300 p-1 mb-6" >Guardar</button>
             </div>
         </section>
     </form>
     
-        <table id="Listado" class="table-auto Tabla ">
-            <thead class="Margen">
+    <div class="flex justify-center" name="tabla">
+        <table id="Listado" class="table-auto  m-5">
+            <thead>
                 <tr>
-                    <th class="subTitulos Margen" for="Nombre">Nombre</th>   
-                    <th class="subTitulos Margen" for="Fecha">Fecha de Nacimiento</th>  
-                    <th class="subTitulos Margen" for="Telefono">Telefono</th>    
-                    <th class="subTitulos Margen" for="Edad">Edad</th>    
-                    <th class="subTitulos Margen" for="Trabajo">Trabajo</th>            
-                    <th class="subTitulos Margen" for="Acciones">Acciones</th>
+                    <th class="text-xl font-mono bg-gray-300 m-5 p-5 rounded-tl-lg rounded-bl-lg " for="Nombre">Nombre</th>   
+                    <th class="text-xl font-mono bg-gray-300 m-5 p-5" for="Fecha">Fecha de Nacimiento</th>  
+                    <th class="text-xl font-mono bg-gray-300 m-5 p-5" for="Telefono">Telefono</th>    
+                    <th class="text-xl font-mono bg-gray-300 m-5 p-5" for="Edad">Edad</th>    
+                    <th class="text-xl font-mono bg-gray-300 m-5 p-5" for="Trabajo">Trabajo</th>            
+                    <th class="text-xl font-mono bg-gray-300 m-5 p-5 rounded-tr-lg rounded-br-lg" for="Acciones">Acciones</th>
                 </tr>
             </thead>    
             <tbody>
                 <tr class="border border-gray-200 mb-4">
-                <td id="listNombre" ></td>
+                <td id="listNombre" name="listNombre"></td>
                 <td id="listFecha"></td>
                 <td id="listTelefono"></td>
                 <td id="listEdad"></td>
@@ -83,6 +84,7 @@
                 </tr>
             </tbody>
         </table>
+    </div>
 
     <script src="javaCRUD.js"></script>  
 </body>

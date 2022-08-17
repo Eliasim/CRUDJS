@@ -2,6 +2,9 @@ var listaPersonas = [];
 var node, el
 inFecha.max = new Date().toISOString().split("T")[0]
 
+
+limpiar()
+
 function limpiar(){
     document.getElementById("inNombre").value = ""
     document.getElementById("inFecha").value = ""
@@ -28,8 +31,8 @@ function guardar(){
     mostrarTrabajo();
     mostrarBotones();
     objeto = {}
-    console.log(listaPersonas);
 }
+
 
 function mostrarNombre(){
     var node = document.createElement("tr");
@@ -37,6 +40,7 @@ function mostrarNombre(){
 
     node.appendChild(document.createTextNode(listaPersonas[lastItem].gNombre));
     node.setAttribute("id", lastItem)
+    node.setAttribute("class", "flex justify-center p-1 mx-2")
     document.getElementById("listNombre").appendChild(node);  
 }
 
@@ -45,6 +49,7 @@ function mostrarFecha(){
     let lastItem = listaPersonas.length-1;
     node.appendChild(document.createTextNode(listaPersonas[lastItem].gFecha));
     node.setAttribute("id", lastItem)
+    node.setAttribute("class", "flex justify-center p-1 mx-2")
     document.getElementById("listFecha").appendChild(node); 
 }
 
@@ -53,6 +58,7 @@ function mostrarTelefono(){
     let lastItem = listaPersonas.length-1;
     node.appendChild(document.createTextNode(listaPersonas[lastItem].gTelefono));
     node.setAttribute("id", lastItem)
+    node.setAttribute("class", "flex justify-center p-1 mx-2")
     document.getElementById("listTelefono").appendChild(node); 
 }
 
@@ -61,6 +67,7 @@ function mostrarEdad(){
     let lastItem = listaPersonas.length-1;
     node.appendChild(document.createTextNode(listaPersonas[lastItem].gEdad));
     node.setAttribute("id", lastItem)
+    node.setAttribute("class", "flex justify-center p-1 mx-2")
     document.getElementById("listEdad").appendChild(node); 
 }
 
@@ -69,6 +76,7 @@ function mostrarTrabajo(){
     let lastItem = listaPersonas.length-1;
     node.appendChild(document.createTextNode(listaPersonas[lastItem].gTrabajo));
     node.setAttribute("id", lastItem)
+    node.setAttribute("class", "flex justify-center p-1 mx-2")
     document.getElementById("listTrabajo").appendChild(node); 
 }
 
@@ -82,8 +90,8 @@ function mostrarBotones(){
     
     btnEditar.setAttribute("id", lastItem)
     btnEliminar.setAttribute("id", lastItem)
-    btnEditar.setAttribute("class", "rounded-md bg-gray-300")
-    btnEliminar.setAttribute("class", "rounded-md bg-gray-300")
+    btnEditar.setAttribute("class", "rounded-md bg-gray-300 p-1 mx-2")
+    btnEliminar.setAttribute("class", "rounded-md bg-gray-300 p-1 mx-2")
     btnEliminar.setAttribute("onclick", "eliminar('"+lastItem+"')")
     btnEditar.setAttribute("onclick", "editar('"+lastItem+"')")
     document.getElementById("listAcciones").appendChild(node);
@@ -102,18 +110,44 @@ function eliminar(id){
     document.getElementById(id).remove()
 }
 
-
 function editar(id){
+
+    nom = listaPersonas[id].gNombre
+    fec = listaPersonas[id].gFecha
+    tel = listaPersonas[id].gTelefono
+    eda = listaPersonas[id].gEdad
+    tra = listaPersonas[id].gTrabajo
+
+    document.form.inNombre.value = nom
+    document.form.inFecha.value = fec
+    document.form.inTelefono.value = tel
+    document.form.inEdad.value = eda
+    document.form.inTrabajo.value = tra
+    
+    btnActualizar = document.createElement("button")
+    btnActualizar.textContent = "Actualizar"    
+    btnActualizar.setAttribute("class", "font-mono rounded-md bg-gray-300 p-1 mb-6 mx-2")
+    btnActualizar.setAttribute("type", "button")
+    btnActualizar.setAttribute("onclick", "actualizar('"+id+"')")
+    btnActualizar.setAttribute("id", id)
+    document.getElementById("botones").appendChild(btnActualizar)
+}
+
+function actualizar(id){
+    var tr = document.getElementById("listNombre")
+    var nodeNuevo = document.createElement("tr");
     var gNombre = document.getElementById("inNombre").value;
     var gFecha = document.getElementById("inFecha").value;
     var gTelefono = document.getElementById("inTelefono").value;
     var gEdad = document.getElementById("inEdad").value;
     var gTrabajo = document.getElementById("inTrabajo").value;
-    var objeto = {gNombre, gFecha, gTelefono, gEdad, gTrabajo}
+    let objeto = {gNombre, gFecha, gTelefono, gEdad, gTrabajo}
+    
+    act = listaPersonas.splice(id, 1, objeto)    
+    document.getElementById(id).remove()
 
-    document.getElementById(id).innerHTML = gNombre + " / " + gFecha + " / " + gTelefono + " / " + gEdad + " / " + gTrabajo
+    tr.appendChild(document.createTextNode(listaPersonas[id].gNombre))
+    tr.replaceChild(nodeNuevo, tr.node)
 
-    edit = listaPersonas[id]
-    listaPersonas.splice(id,1,objeto)
-    limpiar()
+    console.log(n);
 }
