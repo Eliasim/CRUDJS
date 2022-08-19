@@ -49,7 +49,7 @@ function mostrarFecha(){
     let lastItem = listaPersonas.length-1;
     node.appendChild(document.createTextNode(listaPersonas[lastItem].gFecha));
     node.setAttribute("id", lastItem)
-    node.setAttribute("class", "flex justify-center p-1 mx-2")
+    node.setAttribute("class", "flex justify-center p-1 mx-2 my-2")
     document.getElementById("listFecha").appendChild(node); 
 }
 
@@ -58,7 +58,7 @@ function mostrarTelefono(){
     let lastItem = listaPersonas.length-1;
     node.appendChild(document.createTextNode(listaPersonas[lastItem].gTelefono));
     node.setAttribute("id", lastItem)
-    node.setAttribute("class", "flex justify-center p-1 mx-2")
+    node.setAttribute("class", "flex justify-center p-1 mx-2 my-2")
     document.getElementById("listTelefono").appendChild(node); 
 }
 
@@ -67,7 +67,7 @@ function mostrarEdad(){
     let lastItem = listaPersonas.length-1;
     node.appendChild(document.createTextNode(listaPersonas[lastItem].gEdad));
     node.setAttribute("id", lastItem)
-    node.setAttribute("class", "flex justify-center p-1 mx-2")
+    node.setAttribute("class", "flex justify-center p-1 mx-2 my-2")
     document.getElementById("listEdad").appendChild(node); 
 }
 
@@ -76,7 +76,7 @@ function mostrarTrabajo(){
     let lastItem = listaPersonas.length-1;
     node.appendChild(document.createTextNode(listaPersonas[lastItem].gTrabajo));
     node.setAttribute("id", lastItem)
-    node.setAttribute("class", "flex justify-center p-1 mx-2")
+    node.setAttribute("class", "flex justify-center p-1 mx-2 my-2")
     document.getElementById("listTrabajo").appendChild(node); 
 }
 
