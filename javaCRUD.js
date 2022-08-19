@@ -40,7 +40,7 @@ function mostrarNombre(){
 
     node.appendChild(document.createTextNode(listaPersonas[lastItem].gNombre));
     node.setAttribute("id", lastItem)
-    node.setAttribute("class", "flex justify-center p-1 mx-2")
+    node.setAttribute("class", "flex justify-center p-1 mx-2 my-2")
     document.getElementById("listNombre").appendChild(node);  
 }
 
@@ -90,8 +90,8 @@ function mostrarBotones(){
     
     btnEditar.setAttribute("id", lastItem)
     btnEliminar.setAttribute("id", lastItem)
-    btnEditar.setAttribute("class", "rounded-md bg-gray-300 p-1 mx-2")
-    btnEliminar.setAttribute("class", "rounded-md bg-gray-300 p-1 mx-2")
+    btnEditar.setAttribute("class", "rounded-md bg-gray-300 p-1 mx-2 my-1")
+    btnEliminar.setAttribute("class", "rounded-md bg-gray-300 p-1 mx-2 my-1")
     btnEliminar.setAttribute("onclick", "eliminar('"+lastItem+"')")
     btnEditar.setAttribute("onclick", "editar('"+lastItem+"')")
     document.getElementById("listAcciones").appendChild(node);
@@ -134,8 +134,6 @@ function editar(id){
 }
 
 function actualizar(id){
-    var tr = document.getElementById("listNombre")
-    var nodeNuevo = document.createElement("tr");
     var gNombre = document.getElementById("inNombre").value;
     var gFecha = document.getElementById("inFecha").value;
     var gTelefono = document.getElementById("inTelefono").value;
@@ -145,9 +143,70 @@ function actualizar(id){
     
     act = listaPersonas.splice(id, 1, objeto)    
     document.getElementById(id).remove()
+    rempNombre(id)
+    rempFecha(id)
+    rempTelefono(id)
+    rempEdad(id)
+    rempTrabajo(id)
+    limpiar()
+}
 
-    tr.appendChild(document.createTextNode(listaPersonas[id].gNombre))
-    tr.replaceChild(nodeNuevo, tr.node)
+function rempNombre(id){
+    var gNombre = document.getElementById("inNombre").value;
+    var nuevoTr = document.createElement("tr")
+    var nuevoNombre = document.createTextNode(gNombre)
+    nuevoTr.setAttribute("id", id)
+    nuevoTr.setAttribute("class", "flex justify-center p-1 mx-2")
+    nuevoTr.appendChild(nuevoNombre)
 
-    console.log(n);
+    var listNombre = document.getElementById("listNombre")
+    listNombre.replaceChild(nuevoTr,listNombre.childNodes[id])
+}
+
+function rempFecha(id){
+    var gFecha = document.getElementById("inFecha").value;
+    var nuevoFechaTr = document.createElement("tr")
+    var nuevoFecha = document.createTextNode(gFecha)
+    nuevoFechaTr.setAttribute("id", id)
+    nuevoFechaTr.setAttribute("class", "flex justify-center p-1 mx-2")
+    nuevoFechaTr.appendChild(nuevoFecha)
+
+    var listFecha = document.getElementById("listFecha")
+    listFecha.replaceChild(nuevoFechaTr,listFecha.childNodes[id])
+}
+
+function rempTelefono(id){
+    var gTelefono = document.getElementById("inTelefono").value;
+    var nuevoTelefonoTr = document.createElement("tr")
+    var nuevoTelefono = document.createTextNode(gTelefono)
+    nuevoTelefonoTr.setAttribute("id", id)
+    nuevoTelefonoTr.setAttribute("class", "flex justify-center p-1 mx-2")
+    nuevoTelefonoTr.appendChild(nuevoTelefono)
+
+    var listTelefono = document.getElementById("listTelefono")
+    listTelefono.replaceChild(nuevoTelefonoTr,listTelefono.childNodes[id])
+}
+
+function rempEdad(id){
+    var gEdad = document.getElementById("inEdad").value;
+    var nuevoEdadTr = document.createElement("tr")
+    var nuevoEdad = document.createTextNode(gEdad)
+    nuevoEdadTr.setAttribute("id", id)
+    nuevoEdadTr.setAttribute("class", "flex justify-center p-1 mx-2")
+    nuevoEdadTr.appendChild(nuevoEdad)
+
+    var listEdad = document.getElementById("listEdad")
+    listEdad.replaceChild(nuevoEdadTr,listEdad.childNodes[id])
+}
+
+function rempTrabajo(id){
+    var gTrabajo = document.getElementById("inTrabajo").value;
+    var nuevoTrabajoTr = document.createElement("tr")
+    var nuevoTrabajo = document.createTextNode(gTrabajo)
+    nuevoTrabajoTr.setAttribute("id", id)
+    nuevoTrabajoTr.setAttribute("class", "flex justify-center p-1 mx-2")
+    nuevoTrabajoTr.appendChild(nuevoTrabajo)
+
+    var listTrabajo = document.getElementById("listTrabajo")
+    listTrabajo.replaceChild(nuevoTrabajoTr,listTrabajo.childNodes[id])
 }
