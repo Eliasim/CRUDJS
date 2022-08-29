@@ -5,20 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD</title>
-    <link rel="stylesheet" href="C:\Users\ESTACION X\Desktop\EliasimCRUD\estilosCRUD.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
     
     <header>
-        <img src="C:\Users\ESTACION X\Desktop\EliasimCRUD\logoProsis.png" id="logo" class="w-15 m-10">
+        <img src="logoProsis.png" id="logo" class="w-15 m-auto mt-10 mb-10">
     </header>
 
-    <form id="form" name="form">
+    <!-- Formulario Registro de Persona -->
+
+    <form id="form" name="form" >
+
+        <!-- Seccion encabezado -->
+
         <section class="px-10">
             <h1 class="text-center text-white font-mono text-7xl p-4 bg-gray-500 rounded-md">CRUD</h1>
         </section>
         
+        <!-- Seccion Campos para llenar -->
+
         <section id="Formulario" class="flex justify-center text-center pt-5">
             <div class="bg-gray-400 m-10 p-3 rounded-md">
                 <label class="text-4xl font-mono text-white" for="Nombre" id="Nombre">Nombre</label><br><br>
@@ -54,13 +60,17 @@
             </div>            
         </section>
 
+        <!-- Seccion Boton Guardar -->
+
         <section id="Boton" >
             <div class="flex justify-center pt-4" id="botones">
-                <button type="button" onclick="guardar()" class="font-mono rounded-md bg-gray-300 p-1 mb-6" >Guardar</button>
+                <button type="button" onclick="guardar()" id="btnGuardar" class="font-mono rounded-md bg-gray-300 p-1 mb-6" >Guardar</button>
             </div>
         </section>
     </form>
     
+    <!-- Tabla para guardar mostrar los datos a almacenar -->
+
     <div class="flex justify-center" name="tabla">
         <table id="Listado" class="table-auto  m-5">
             <thead>

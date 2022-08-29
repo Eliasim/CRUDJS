@@ -5,6 +5,8 @@ inFecha.max = new Date().toISOString().split("T")[0]
 
 limpiar()
 
+///Funcion para limpiar los inputs del formulario///
+
 function limpiar(){
     document.getElementById("inNombre").value = ""
     document.getElementById("inFecha").value = ""
@@ -13,6 +15,8 @@ function limpiar(){
     document.getElementById("inTrabajo").value =""
 }
 
+///Funcion para guardar los datos en el array///
+
 function guardar(){
     var gNombre = document.getElementById("inNombre").value;
     var gFecha = document.getElementById("inFecha").value;
@@ -20,19 +24,33 @@ function guardar(){
     var gEdad = document.getElementById("inEdad").value;
     var gTrabajo = document.getElementById("inTrabajo").value;
     let objeto = {gNombre, gFecha, gTelefono, gEdad, gTrabajo}
+
+    new function validar(){
+        var elemento = document.getElementById("inNombre")
+        var elemento = document.getElementById("inFecha")
+        var elemento = document.getElementById("inTelefono")
+        var elemento = document.getElementById("inEdad")
+        var elemento = document.getElementById("inTrabajo")
+        if(elemento.value==""){
+            alert("Te faltan campos por llenar")
+            return 
+        }else{
+            limpiar();
+            listaPersonas.push(objeto);
+            mostrarNombre();
+            mostrarFecha();
+            mostrarTelefono();
+            mostrarEdad();
+            mostrarTrabajo();
+            mostrarBotones();
+            objeto = {}
+        }
+    }
     
     
-    limpiar();
-    listaPersonas.push(objeto);
-    mostrarNombre();
-    mostrarFecha();
-    mostrarTelefono();
-    mostrarEdad();
-    mostrarTrabajo();
-    mostrarBotones();
-    objeto = {}
 }
 
+///Funcion para mostrar el Nombre de la ultima persona guardada///
 
 function mostrarNombre(){
     var node = document.createElement("tr");
@@ -44,6 +62,8 @@ function mostrarNombre(){
     document.getElementById("listNombre").appendChild(node);  
 }
 
+///Funcion para mostrar la Fecha de Nacimiento de la ultima persona guardada///
+
 function mostrarFecha(){
     var node = document.createElement("tr");
     let lastItem = listaPersonas.length-1;
@@ -52,6 +72,8 @@ function mostrarFecha(){
     node.setAttribute("class", "flex justify-center p-1 mx-2 my-2")
     document.getElementById("listFecha").appendChild(node); 
 }
+
+///Funcion para mostrar el Telefono de la ultima persona guardada///
 
 function mostrarTelefono(){
     var node = document.createElement("tr");
@@ -62,6 +84,8 @@ function mostrarTelefono(){
     document.getElementById("listTelefono").appendChild(node); 
 }
 
+///Funcion para mostrar la Edad de la ultima persona guardada///
+
 function mostrarEdad(){
     var node = document.createElement("tr");
     let lastItem = listaPersonas.length-1;
@@ -70,6 +94,8 @@ function mostrarEdad(){
     node.setAttribute("class", "flex justify-center p-1 mx-2 my-2")
     document.getElementById("listEdad").appendChild(node); 
 }
+
+///Funcion para mostrar el Trabajo de la ultima persona guardada///
 
 function mostrarTrabajo(){
     var node = document.createElement("tr");
@@ -80,6 +106,8 @@ function mostrarTrabajo(){
     document.getElementById("listTrabajo").appendChild(node); 
 }
 
+///Funcion para crear botonos "Editar" y "Eliminar para cada persona"///
+
 function mostrarBotones(){
     var node = document.createElement("tr");
     let lastItem = listaPersonas.length-1;
@@ -89,7 +117,9 @@ function mostrarBotones(){
     btnEliminar.textContent = "Eliminar";
     
     btnEditar.setAttribute("id", lastItem)
+    btnEditar.setAttribute("name", "btnEditar")
     btnEliminar.setAttribute("id", lastItem)
+    btnEliminar.setAttribute("name", "btnEliminar")
     btnEditar.setAttribute("class", "rounded-md bg-gray-300 p-1 mx-2 my-1")
     btnEliminar.setAttribute("class", "rounded-md bg-gray-300 p-1 mx-2 my-1")
     btnEliminar.setAttribute("onclick", "eliminar('"+lastItem+"')")
@@ -98,6 +128,8 @@ function mostrarBotones(){
     document.getElementById("listAcciones").appendChild(btnEditar);
     document.getElementById("listAcciones").appendChild(btnEliminar);  
 }
+
+///Funcion para Eliminar una persona seleccionada///
 
 function eliminar(id){
     listaPersonas.splice(id,1)
@@ -109,6 +141,8 @@ function eliminar(id){
     document.getElementById(id).remove()
     document.getElementById(id).remove()
 }
+
+///Funcion para Editar una person seleccionada///
 
 function editar(id){
 
@@ -131,7 +165,21 @@ function editar(id){
     btnActualizar.setAttribute("onclick", "actualizar('"+id+"')")
     btnActualizar.setAttribute("id", id)
     document.getElementById("botones").appendChild(btnActualizar)
+
+    var btnEdit =  document.getElementsByName("btnEditar")
+    for (let i = 0; i < btnEdit.length; i++) {
+        btnEdit[i].classList.add("invisible");      
+    }
+
+    var btnEliminar =  document.getElementsByName("btnEliminar")
+    for (let i = 0; i < btnEliminar.length; i++) {
+        btnEliminar[i].classList.add("invisible");        
+    }
+
+    ocultar()
 }
+
+///Funcion para actualizar datos de alguna persona///
 
 function actualizar(id){
     var gNombre = document.getElementById("inNombre").value;
@@ -149,7 +197,20 @@ function actualizar(id){
     rempEdad(id)
     rempTrabajo(id)
     limpiar()
+    mostrar()
+
+    var btnEdit =  document.getElementsByName("btnEditar")
+    for (let i = 0; i < btnEdit.length; i++) {
+        btnEdit[i].classList.remove("invisible");        
+    }
+
+    var btnEliminar =  document.getElementsByName("btnEliminar")
+    for (let i = 0; i < btnEliminar.length; i++) {
+        btnEliminar[i].classList.remove("invisible");        
+    }
 }
+
+///Funcion para remplazar el Nombre de una persona al editar///
 
 function rempNombre(id){
     var gNombre = document.getElementById("inNombre").value;
@@ -163,6 +224,8 @@ function rempNombre(id){
     listNombre.replaceChild(nuevoTr,listNombre.childNodes[id])
 }
 
+///Funcion para remplazar la Fecha de Nacimiento de una persona al editar///
+
 function rempFecha(id){
     var gFecha = document.getElementById("inFecha").value;
     var nuevoFechaTr = document.createElement("tr")
@@ -174,6 +237,8 @@ function rempFecha(id){
     var listFecha = document.getElementById("listFecha")
     listFecha.replaceChild(nuevoFechaTr,listFecha.childNodes[id])
 }
+
+///Funcion para remplazar el Telefono de una persona al editar///
 
 function rempTelefono(id){
     var gTelefono = document.getElementById("inTelefono").value;
@@ -187,6 +252,8 @@ function rempTelefono(id){
     listTelefono.replaceChild(nuevoTelefonoTr,listTelefono.childNodes[id])
 }
 
+///Funcion para remplazar la Edad de una persona al editar///
+
 function rempEdad(id){
     var gEdad = document.getElementById("inEdad").value;
     var nuevoEdadTr = document.createElement("tr")
@@ -199,6 +266,8 @@ function rempEdad(id){
     listEdad.replaceChild(nuevoEdadTr,listEdad.childNodes[id])
 }
 
+///Funcion para remplazar el Trabajo de una persona al editar///
+
 function rempTrabajo(id){
     var gTrabajo = document.getElementById("inTrabajo").value;
     var nuevoTrabajoTr = document.createElement("tr")
@@ -209,4 +278,18 @@ function rempTrabajo(id){
 
     var listTrabajo = document.getElementById("listTrabajo")
     listTrabajo.replaceChild(nuevoTrabajoTr,listTrabajo.childNodes[id])
+}
+
+///Funcion ocultar el boton guardar///
+
+function ocultar(){
+    let ocultar = document.getElementById("btnGuardar")
+    ocultar.style.display = "none"
+}
+
+///Funcion para mostrar el boton guardar///
+
+function mostrar(){
+    let mostrar = document.getElementById("btnGuardar")
+    mostrar.style.display = ""
 }
