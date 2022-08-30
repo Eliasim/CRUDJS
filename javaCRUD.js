@@ -58,7 +58,7 @@ function mostrarNombre(){
 
     node.appendChild(document.createTextNode(listaPersonas[lastItem].gNombre));
     node.setAttribute("id", lastItem)
-    node.setAttribute("class", "flex justify-center p-1 mx-2 my-2")
+    node.setAttribute("class", "flex justify-center p-1 mx-2 my-2 uppercase")
     document.getElementById("listNombre").appendChild(node);  
 }
 
@@ -102,7 +102,7 @@ function mostrarTrabajo(){
     let lastItem = listaPersonas.length-1;
     node.appendChild(document.createTextNode(listaPersonas[lastItem].gTrabajo));
     node.setAttribute("id", lastItem)
-    node.setAttribute("class", "flex justify-center p-1 mx-2 my-2")
+    node.setAttribute("class", "flex justify-center p-1 mx-2 my-2 uppercase")
     document.getElementById("listTrabajo").appendChild(node); 
 }
 
@@ -217,7 +217,7 @@ function rempNombre(id){
     var nuevoTr = document.createElement("tr")
     var nuevoNombre = document.createTextNode(gNombre)
     nuevoTr.setAttribute("id", id)
-    nuevoTr.setAttribute("class", "flex justify-center p-1 mx-2")
+    nuevoTr.setAttribute("class", "flex justify-center p-1 mx-2 uppercase")
     nuevoTr.appendChild(nuevoNombre)
 
     var listNombre = document.getElementById("listNombre")
@@ -273,7 +273,7 @@ function rempTrabajo(id){
     var nuevoTrabajoTr = document.createElement("tr")
     var nuevoTrabajo = document.createTextNode(gTrabajo)
     nuevoTrabajoTr.setAttribute("id", id)
-    nuevoTrabajoTr.setAttribute("class", "flex justify-center p-1 mx-2")
+    nuevoTrabajoTr.setAttribute("class", "flex justify-center p-1 mx-2 uppercase")
     nuevoTrabajoTr.appendChild(nuevoTrabajo)
 
     var listTrabajo = document.getElementById("listTrabajo")
